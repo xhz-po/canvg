@@ -27,7 +27,9 @@ export default class ImageElement extends RenderedElement {
 			return;
 		}
 
-		const isSvg = href.endsWith('.svg') || /^\s*data:image\/svg\+xml/i.test(href);
+		//const isSvg = href.endsWith('.svg') || /^\s*data:image\/svg\+xml/i.test(href);
+		const pattern = /.svg.?(([a-z]|[A-Z])*).?([0-9]*)$/;
+		const isSvg = pattern.test(href);
 
 		document.images.push(this);
 
